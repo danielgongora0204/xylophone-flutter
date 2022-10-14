@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:xylophone/widgets/xylophoneButton.dart';
+import 'package:xylophone/extensions/integerExtensions.dart';
 
 class XylophonePage extends StatefulWidget {
   const XylophonePage({Key? key}) : super(key: key);
@@ -14,57 +16,15 @@ class _XylophonePageState extends State<XylophonePage> {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.amber),
+        children: List<Widget>.generate(
+          7,
+          (index) => Expanded(
+            child: XylophoneButton(
+              backgroundColor: (index + 1).color,
+              asset: 'note${index + 1}.wav',
             ),
           ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.blue),
-            ),
-          ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.green),
-            ),
-          ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.deepPurpleAccent),
-            ),
-          ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.deepOrangeAccent),
-            ),
-          ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.pinkAccent),
-            ),
-          ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: null,
-              style: ElevatedButton.styleFrom(primary: Colors.cyanAccent),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
