@@ -11,21 +11,17 @@ class XylophonePage extends StatefulWidget {
 
 class _XylophonePageState extends State<XylophonePage> {
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: List<Widget>.generate(
-          7,
-          (index) => Expanded(
-            child: XylophoneButton(
+  Widget build(BuildContext context) => Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: List<Widget>.generate(
+            7,
+            (index) => XylophoneButton(
               backgroundColor: (index + 1).color,
               asset: 'note${index + 1}.wav',
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }

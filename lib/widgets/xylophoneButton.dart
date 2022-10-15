@@ -10,16 +10,14 @@ class XylophoneButton extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async => playMusic(asset: asset),
-      child: null,
-      style: ElevatedButton.styleFrom(primary: backgroundColor),
-    );
-  }
+  Widget build(BuildContext context) => Expanded(
+        child: ElevatedButton(
+          onPressed: () async => playMusic(asset),
+          child: null,
+          style: ElevatedButton.styleFrom(primary: backgroundColor),
+        ),
+      );
 
-  void playMusic({asset: String}) async {
-    final player = AudioPlayer();
-    await player.play(AssetSource(asset));
-  }
+  void playMusic(String asset) async =>
+      await AudioPlayer().play(AssetSource(asset));
 }
